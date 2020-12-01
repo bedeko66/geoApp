@@ -12,8 +12,9 @@ html {
       display: flex;
 }
 
-h1, label, button, select, input {
+h1, h2, label, button, select, input {
     margin: 20px;
+    text-align: center;
 }
 
 #WikiSearch, #GeoNames, #CountryInfo{
