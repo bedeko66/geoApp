@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Geolocation Search Page</title>
+    <meta name="author" content="Laszlo Bedekovics">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="page for finding geolocation information" />
+    <link rel="icon" href="libs/static/favicon.ico" type="image/ico">
+    <link rel="stylesheet" href="libs/css/bootstrap.min.css">
+    <link rel="stylesheet" href="libs/css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Your geography knowledge grinder 🗺</h1>
+        <br>
+    </header>
+
+    <nav id="table">
+        <table id="infoTbl" class="table table-sm table-hover table-bordered table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Let's try 👇 </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Wikipedia Fulltext Search</td>
+                    <td>Access to georeferenced wikipedia articles with images</td>
+                    <td><button class="btn btn-success btnmain" id="btnone" type="button">WikiSearch</button></td>
+                </tr>
+                <tr>
+                    <td>GeoNames Search</td>
+                    <td>Find location information /population, country code, coordinates </td>
+                    <td><button class=" btn btn-success btnmain" id="btntwo" type="button">GeoNames</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Country Info Search</td>
+                    <td>Discover country geo inf: Capital, Population, Area in square km...</td>
+                    <td><button class="btn btn-success btnmain" id="btnthree" type="button">CountryInfo</button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <hr>
+    </nav>
+
+    <section class="sectmain" id="WikiSearch">
+        <br>
+        <h2>Read articles by city geolocation</h2>
+        <p>A full text search over the georeferenced Wikipedia articles is available in</p>
+        <form onsubmit="return false;">
+            <div class="form-group">
+                <label for="selLanguage">Select language</label>
+                <br>
+                <select class="browser-default custom-select" id="selLanguage">
+                    <option value="en">English</option>
+                    <option value="fr">French</option>
+                    <option value="de">German</option>
+                    <option value="es">Spanish</option>
+                    <option value="it">Italian</option>
+                </select>
+                <br>
+                <label for="wsearch">Search by city name</label>
+                <br>
+                <input class="form-control" type="search" id="query" name="wsearch"
+                    placeholder="Type name of the city here ... ">
+                <br>
+                <input type="button" class="btn btn-secondary" id="submit" value="Search 🐨 ">
+            </div>
+        </form>
+        <div id="tblContainer">
+            <table id="location" class="table table-sm table-hover table-bordered table-dark"></table>
+        </div>
+    </section>
+
+    <section class="sectmain" id="GeoNames">
+        <h2>GeoNames Search</h2>
+        <p>search over all attributes of a place : place name, country name, continent ...</p>
+        <form onsubmit="return false;">
+            <div class="form-group">
+                <br>
+                <label for="wsearch">Search by place name</label>
+                <br>
+                <input class="form-control" type="search" id="query2" name="wsearch"
+                    placeholder="Type name of the place here ... ">
+                <br>
+                <input type="button" class="btn btn-secondary" id="submit2" value="Search 🦊 ">
+            </div>
+        </form>
+        <div class="container" id="tblContainer">
+            <table id="geonamesTbl" class="table table-sm table-hover table-striped"></table>
+        </div>
+    </section>
+
+    <section class="sectmain" id="CountryInfo">
+        <h2>World countries 🐶</h2>
+        <p>Enhance your geography knowledge</p>
+        <br>
+
+        <select class="browser-default custom-select" id="continents">
+            <option disabled selected value> -- select continent -- </option>
+            <option value="EU">Europe</option>
+            <option value="NA">North America</option>
+            <option value="SA">South America</option>
+            <option value="AS">Asia</option>
+            <option value="AF">Africa</option>
+            <option value="OC">Oceania</option>
+            <option value="AN">Antarctica</option>
+        </select>
+        <br>
+        <select class="browser-default custom-select" id="countries">
+            <option id="cSelect" disabled selected value> -- select country -- </option>
+        </select>
+        <br>
+        <div class="container" id="tblContainer">
+            <table id="geoCountriesTbl" class="table table-sm table-hover"></table>
+        </div>
+    </section>
+
+    </div>
+    <script type="application/javascript" src="libs/js/jquery-2.2.3.min.js"></script>
+    <script type="application/javascript" src="libs/js/main.js"></script>
+    <script type="application/javascript" src="libs/js/geoWiki.js"></script>
+    <script type="application/javascript" src="libs/js/geoNames.js"></script>
+    <script type="application/javascript" src="libs/js/geoCountries.js"></script>
+</body>
+
+</html>
